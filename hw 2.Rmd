@@ -1,0 +1,100 @@
+---
+title: "hw2"
+author: "Anyesha Ray, Git Hub: anyeshar"
+date: "January 30, 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+#R Command Questions 
+
+Question 1
+```{r}
+fahren <- c(24,15)
+cel <- c()
+for (temp in fahren) {
+  cel <- c(cel, (temp-32)*5/9)
+}
+print(cel)
+
+```
+
+Question 2
+```{r}
+vec200 <- c()
+for (x in c(1:200)) {
+  if (x %% 2 == 0) {
+    vec200 <- c(vec200, 1)
+  }
+  else {
+    vec200 <- c(vec200, 3)
+  }
+}
+print(vec200)
+```
+
+Question 3
+```{r}
+numPerfect <- 0
+for (x in c(1:2001)) {
+  sqrt <- x^0.5
+  if (sqrt == round(sqrt)) {
+    numPerfect = numPerfect + 1
+  }
+}
+print(numPerfect)
+```
+
+
+#MPG Questions
+Question 1
+```{r}
+library(ggplot2)
+summary(mpg)
+head(mpg)
+
+#top 3
+sort <- mpg[order(-mpg$hwy), ]
+top3 <- sort[1:3, ]
+print(top3)
+
+```
+
+Question 2
+```{r}
+Compact <- mpg[mpg$class == 'compact', ]
+numCompact <- length(unique(Compact$model))
+print(numCompact)
+
+```
+
+
+Question 3
+```{r}
+plot(mpg$hwy,mpg$cty, main = "Highway v. City")
+
+```
+There is a positive, linear, and moderatly strong to strong relationship between the two vairables. 
+Not all the data points may be shows because of overlapping. 
+
+Question 4
+Here boxplots make the most sense because they are a visual represenatation of the summary statistics. 
+```{r}
+
+#using ggplot
+
+#hyw
+hwy_boxplot <- ggplot(mpg, aes(group=year, x=year, y=hwy)) + geom_boxplot()
+hwy_boxplot
+summary(mpg[mpg$year == '1999', ])
+summary(mpg[mpg$year == '2008', ])
+#cty
+ctyBox <- ggplot(mpg, aes(group=year, x=year, y=cty)) + geom_boxplot()
+ctyBox
+summary(mpg[mpg$year == '1999', ])
+summary(mpg[mpg$year == '2008', ])
+
+```
+For both the city and highway the mean mpg appears to be about the same. It is different in the city and highway but within the two they are very similar graphs and numbers. 
