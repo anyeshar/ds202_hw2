@@ -1,8 +1,10 @@
 ---
 title: "hw2"
-author: "Anyesha Ray, Git Hub: anyeshar"
+author: 'Anyesha Ray, Git Hub: anyeshar'
 date: "January 30, 2020"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
